@@ -1,0 +1,19 @@
+<div class="filter" *ngIf="this.filterColumns">
+    <div class="filter__item" *ngFor="let column of this.filterColumns">
+
+        <h6>Filter by "{{ column.charAt(0).toUpperCase() + column.slice(1) }}"</h6>
+        <div class="form-check">
+            <input #defaultCheckbox (change)="shareFilterValues('all', this.filterValues, $event)" checked="true"
+                class="form-check-input" id="all" type="checkbox" value="all" />
+            <label class="form-check-label" for="all">All</label>
+        </div>
+        <div *ngFor="let item of this.distinctValues; let i = index;">
+            <div class="form-check">
+                <input #optionsCheckboxes (change)="shareFilterValues(column, this.filterValues, $event)" checked="true"
+                    class="form-check-input" [id]="formatId(item, i)" type="checkbox" [value]="item" />
+                <label class="form-check-label" [for]="formatId(item, i)" [textContent]="item"></label>
+            </div>
+        </div>
+
+    </div>
+</div>

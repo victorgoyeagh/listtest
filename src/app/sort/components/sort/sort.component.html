@@ -1,0 +1,14 @@
+<div class="row sort">
+    <div class="col-12">
+        <h6>Sort By:</h6>
+    </div>
+    <div class="col-sm-8 col-9 text-right">
+        <select aria-label="Select a column to sort by" id="sort" class="form-control" (change)="handleSelectedSortParam($event)">
+            <option value="">Select...</option>
+            <option [attr.aria-label]="'Sort by '+sortParam" [value]="sortParam" *ngFor="let sortParam of this.sortService.sortParams">{{ sortParam }}</option>
+        </select>
+    </div>
+    <div class="col-sm-4 col-3">
+        <button [attr.aria-label]="'Sort direction by ' + ((this.direction) ? 'descending':'ascending')" (click)="handleSortDirection($event)" class="arrow down" [title]="'Sort direction by '+ ((this.direction) ? 'descending':'ascending')"></button>
+    </div>
+</div>

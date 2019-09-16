@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>BBOXX Technical Test</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <app-search></app-search>
+                </div>
+                <div class="col-6">
+                    <app-sort (shareSortParam)="logSortParam($event)"></app-sort>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <app-list [inputSortParam]="sortData" [inputFilterParam]="filterParams"></app-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

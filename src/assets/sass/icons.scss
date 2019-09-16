@@ -1,0 +1,30 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.warning {
+    margin: 7px 0 0;
+    @include border-radius(10px);
+    display: block;
+    width: 10px;
+    height: 10px;
+    
+    &.default {
+        background-color: $warning-default;
+    }
+
+    &.i-70-WARNING {
+        background-color: $warning-2;
+    }
+    &.i-90-CRITICAL {
+        background-color: $warning-0;
+    }
+    &.i-60-OK {
+        background-color: $warning-1;
+    }
+    &.i-80-CRITICAL_ACKNOWLEDGED {
+        background-color: $warning-4;
+    }
+    &.i-30-UNKNOWN {
+        background-color: $warning-5;
+    }
+}

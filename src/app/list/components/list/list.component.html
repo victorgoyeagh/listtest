@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                </thead>
+                <tbody role="alert">
+                    <tr
+                        *ngFor="let item of listFilteredItems | filterBy: filterByNameParam | sortBy: sortByParam : getSortDirection">
+                        <td [innerHTML]="item.id"></td>
+                        <td [innerHTML]="'<a target=\'_blank\' href=\'mailto:' + item.email + '\'>' + item.name + '</a>'"></td>
+                        <td [innerHTML]="item.username"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

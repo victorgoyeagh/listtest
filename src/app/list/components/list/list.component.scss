@@ -1,0 +1,17 @@
+table {
+    border: 1px solid #e0e4e7;
+    overflow: auto;
+
+    thead {
+        th {
+            border-bottom: none;
+            border-top: none;
+        } 
+    }
+
+    tbody {
+        td {
+            font-size: 12px;
+        }
+    }
+}

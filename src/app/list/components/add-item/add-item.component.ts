@@ -14,9 +14,9 @@ import { tap } from 'rxjs/operators';
 export class AddItemComponent implements OnInit {
     private emailRegex = new RegExp(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/);
     public form = new FormGroup({
-        name: new FormControl(['', Validators.required]),
-        username: new FormControl(['', Validators.required]),
-        email: new FormControl(['', Validators.required, Validators.pattern(new RegExp(this.emailRegex))]),
+        name: new FormControl('', [Validators.required]),
+        username: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required, Validators.pattern(new RegExp(this.emailRegex))]),
 
         address: new FormGroup({
             street: new FormControl(['']),

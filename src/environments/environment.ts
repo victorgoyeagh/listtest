@@ -3,7 +3,9 @@ export const environment = {
     api: {
         domain: 'https://jsonplaceholder.typicode.com',
         paths: {
-            data: '/users'
+            data: '/users',
+            delete: '/posts/',
+            add: '/users/add'
         }
     }
 };

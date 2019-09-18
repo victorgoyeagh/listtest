@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
@@ -7,17 +7,13 @@ import { SearchService } from '../../services/search.service';
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss'],
-    outputs: ['outputSearchTerm']
+    styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnDestroy, OnInit, AfterViewInit, OnDestroy {
     private searchSub: Subscription;
     public searchTerm: string = undefined;
-    public searchPanel = new FormGroup({
-        txtSearch: new FormControl('')
-    })
-
-    @ViewChild("txtSearch") txtSearch: ElementRef;
+ 
+    @ViewChild('txtSearch') txtSearch: ElementRef;
 
     constructor(
         private searchService: SearchService
@@ -30,7 +26,7 @@ export class SearchComponent implements OnDestroy, OnInit, AfterViewInit, OnDest
 
     ngAfterViewInit() {
 
-        this.searchSub = fromEvent(<HTMLInputElement>this.txtSearch.nativeElement, "input")
+        this.searchSub = fromEvent(<HTMLInputElement>this.txtSearch.nativeElement, 'input')
             .pipe(
                 map(
                     (event: Event) => (<HTMLInputElement>event.target).value

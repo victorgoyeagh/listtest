@@ -6,15 +6,25 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Username</th>
-                </thead>
+                    <th></th>
+                </thead> 
                 <tbody role="alert">
                     <tr
-                        *ngFor="let item of listFilteredItems | filterBy: filterByNameParam | sortBy: sortByParam : getSortDirection">
+                        *ngFor="let item of listFilteredItems | filterBy: filterByNameParam | sortBy: sortByParam : getSortDirection | paginate: { itemsPerPage: defaultItemsPerPage, currentPage: p }; let i = index;">
                         <td [innerHTML]="item.id"></td>
-                        <td [innerHTML]="'<a target=\'_blank\' href=\'mailto:' + item.email + '\'>' + item.name + '</a>'"></td>
+                        <td [innerHTML]="'<a target=\'_blank\' href=\'mailto:' + item.email + '\'>' + item.name + '</a>'">
+                        </td>
                         <td [innerHTML]="item.username"></td>
+                        <td><a href="#" (click)="deleteItem(item.id)"><i class="tag-remove"></i></a></td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <pagination-controls (pageChange)="p = $event" previousLabel="prev" nextLabel="next"></pagination-controls>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>

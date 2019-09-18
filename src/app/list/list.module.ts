@@ -6,15 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { SortByPipe } from './pipe/sortBy';
 import { FilterByPipe } from './pipe/filterBy';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AddItemComponent } from './components/add-item/add-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [ListService],
-  declarations: [ListComponent, SortByPipe, FilterByPipe],
-  exports: [ListComponent, SortByPipe, FilterByPipe]
+  declarations: [AddItemComponent, ListComponent, SortByPipe, FilterByPipe],
+  exports: [AddItemComponent, ListComponent, SortByPipe, FilterByPipe]
 })
 export class ListModule { }

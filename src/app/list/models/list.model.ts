@@ -1,14 +1,14 @@
 
 
 export interface IItem {
-    id: number;
+    id: string;
     name: string;
     username: string;
     email: string;
-    address: IAddress;
+    address?: IAddress;
     phone: any;
     website: string;
-    company: ICompany;
+    company?: ICompany;
 }
 
 export interface IAddress {

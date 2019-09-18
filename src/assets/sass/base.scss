@@ -14,3 +14,12 @@ table {
         }
     }
 }
+.ngx-pagination,
+.ngx-pagination {
+    button,
+    a {
+        &:hover {
+            background: transparent !important;
+        }
+    }
+}
